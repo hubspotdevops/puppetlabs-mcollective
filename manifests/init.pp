@@ -45,6 +45,7 @@
 #
 # Requires:
 #
+#   Class['stdlib']
 #   Class['java']
 #   Class['activemq']
 #
@@ -148,7 +149,7 @@ class mcollective(
   }
 
   # if no pool hash is provided, create a single pool using defaults
-  if $mw_pool == 'UNSET' {
+  if empty($mw_pool) {
     $mw_pool_real = {
       pool1 => { host1 => $mw_server, port1 => $mw_port, user1 => $mw_user,
                  password1 => $mw_passwd  }
