@@ -22,6 +22,7 @@
 #  [*client_config_file*] - The full path to the MCollective client
 #                             configuration file.
 #  [*mw_server*]       - The hostname of the stomp server.
+#  [*mc_registration*]    - The MCollective registration plugin to be used
 #  [*mc_security_provider*] - The MCollective security provider
 #  [*mc_security_psk*]    - The MCollective pre shared key
 #  [*main_collective]     - Sets the default collective
@@ -106,6 +107,7 @@ class mcollective(
   $mw_port           = $mcollective::params::mw_port,
   $mw_user           = $mcollective::params::mw_user,
   $mw_passwd         = $mcollective::params::mw_passwd,
+  $mc_registration   = $mcollective::params::mc_registration,
   $mc_security_provider = $mcollective::params::mc_security_provider,
   $mc_security_psk      = $mcollective::params::mc_security_psk,
   $fact_source          = 'facter',
