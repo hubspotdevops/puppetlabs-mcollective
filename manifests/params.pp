@@ -21,28 +21,28 @@ class mcollective::params {
   $mc_daemonize         = '1'
   $mc_security_provider = 'psk'
   $mc_security_psk      = 'changemeplease'
-  $registration      = 'agentlist'
+  $registration         = 'agentlist'
 
-  $nrpe_dir_real = $osfamily ? {
+  $nrpe_dir_real = $::osfamily ? {
     redhat  => '/etc/nrpe.d',
     default => '/etc/nagios/nrpe.d',
   }
-  $mc_service_name = $osfamily ? {
+  $mc_service_name = $::osfamily ? {
     /(?i-mx:darwin)/ => 'com.puppetlabs.mcollective',
     default          => 'mcollective',
   }
 
-  $mc_libdir = $osfamily ? {
+  $mc_libdir = $::osfamily ? {
     debian  => '/usr/share/mcollective/plugins',
     redhat  => '/usr/libexec/mcollective',
   }
 
-  $mc_service_start = $osfamily ? {
+  $mc_service_start = $::osfamily ? {
     debian  => '/etc/init.d/mcollective start',
     redhat  => '/sbin/service mcollective start',
   }
 
-  $mc_service_stop = $osfamily ? {
+  $mc_service_stop = $::osfamily ? {
     debian  => '/etc/init.d/mcollective stop',
     redhat  => '/sbin/service mcollective stop',
   }
