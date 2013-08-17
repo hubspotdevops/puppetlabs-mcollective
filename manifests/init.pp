@@ -120,14 +120,13 @@ class mcollective(
   $plugin_params        = {}
 ) inherits mcollective::params
 {
-  $v_bool = [ '^true$', '^false$' ]
   validate_bool($manage_packages)
   validate_bool($enterprise)
   validate_bool($manage_plugins)
   validate_re($server_config_file, '^/')
   validate_re($client_config_file, '^/')
-  validate_re($server, $v_bool)
-  validate_re($client, $v_bool)
+  validate_bool($server)
+  validate_bool($client)
   validate_re($version, '^[._0-9a-zA-Z:-]+$')
   validate_re($mc_security_provider, '^[a-zA-Z0-9_]+$')
   validate_re($mc_security_psk, '^[^ \t]+$')
