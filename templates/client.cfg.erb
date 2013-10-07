@@ -6,7 +6,7 @@ libdir          = <%= mc_libdir %>
 
 # Plugins
 securityprovider = <%= mc_security_provider_real %>
-plugin.psk       = <%= mc_security_psk_real %>
+<% if @mc_security_psk_real %>plugin.psk       = <%= mc_security_psk_real %><% end %>
 
 # Middleware
 connector              = <%= connector %>
