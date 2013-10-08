@@ -17,6 +17,7 @@ class mcollective::params {
   $mc_main_collective   = 'mcollective'
   $mc_collectives       = ''
   $mc_logfile           = '/var/log/mcollective.log'
+  $mc_client_logfile    = '/var/log/mcollective-client.log'
   $mc_loglevel          = 'log'
   $mc_daemonize         = '1'
   $mc_security_provider = 'psk'
