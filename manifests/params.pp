@@ -20,7 +20,7 @@ class mcollective::params {
   $mc_loglevel          = 'log'
   $mc_daemonize         = '1'
   $mc_security_provider = 'psk'
-  $mc_security_psk      = 'changemeplease'
+  $mc_security_psk      = undef
   $registration         = 'agentlist'
 
   $nrpe_dir_real = $::osfamily ? {

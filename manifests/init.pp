@@ -129,7 +129,9 @@ class mcollective(
   validate_bool($client)
   validate_re($version, '^[._0-9a-zA-Z:-]+$')
   validate_re($mc_security_provider, '^[a-zA-Z0-9_]+$')
-  validate_re($mc_security_psk, '^[^ \t]+$')
+  if $mc_security_provider == 'psk' {
+    validate_re($mc_security_psk, '^[^ \t]+$')
+  }
   validate_re($fact_source, '^facter$|^yaml$')
   validate_re($connector, '^stomp$|^activemq$|^rabbitmq$')
   validate_hash($plugin_params)
@@ -138,7 +140,7 @@ class mcollective(
   $client_real               = $client
   $client_config_file_real   = $client_config_file
   $server_config_file_real   = $server_config_file
-  $mw_server_real         = $mw_server
+  $mw_server_real            = $mw_server
   $mc_security_provider_real = $mc_security_provider
   $mc_security_psk_real      = $mc_security_psk
 
