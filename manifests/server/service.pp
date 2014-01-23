@@ -16,6 +16,7 @@
 #
 class mcollective::server::service(
   $mc_service_name     = $mcollective::params::mc_service_name,
+  $mc_service_ensure   = 'running',
   $mc_service_stop     = 'UNSET',
   $mc_service_start    = 'UNSET'
 ) {
@@ -32,7 +33,7 @@ class mcollective::server::service(
   }
 
   service { 'mcollective':
-    ensure    => running,
+    ensure    => $mc_service_ensure,
     name      => $mc_service_name,
     hasstatus => true,
     start     => $mc_service_start_real,

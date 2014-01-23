@@ -22,6 +22,7 @@ class mcollective::server::base(
   $enterprise,
   $manage_packages,
   $service_name,
+  $service_ensure,
   $config_file
 ) inherits mcollective::params {
 
@@ -41,6 +42,7 @@ class mcollective::server::base(
   if $enterprise {
     class { 'mcollective::server::service':
       mc_service_name  => $service_name,
+      mc_service_ensure => $service_ensure,
       mc_service_stop  => false,
       mc_service_start => false,
       subscribe        => Class['mcollective::server::config'],
@@ -48,6 +50,7 @@ class mcollective::server::base(
     }
   } else {
     class { 'mcollective::server::service':
+      mc_service_ensure => $service_ensure,
       subscribe    => Class['mcollective::server::config'],
       before       => Anchor['mcollective::end'],
     }
